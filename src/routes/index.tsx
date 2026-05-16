@@ -183,7 +183,7 @@ function Skills() {
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {groups.map((g) => (
           <div key={g.title} className="group rounded-3xl bg-gradient-card p-[2px] shadow-card transition hover:-translate-y-1">
-            <div className="h-full rounded-[calc(theme(borderRadius.3xl)-2px)] bg-card p-6">
+            <div className="h-full rounded-[1.75rem] bg-card p-6">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <g.icon className="h-7 w-7" />
               </div>
@@ -311,7 +311,7 @@ function Projects() {
               </div>
               <h3 className="text-xl font-extrabold text-white">{p.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-white/80">{p.desc}</p>
-              <p className="mt-3 text-xs font-semibold text-primary-foreground/90 text-[oklch(0.85_0.15_45)]">{p.kpis}</p>
+              <p className="mt-3 text-xs font-semibold" style={{ color: "oklch(0.82 0.16 50)" }}>{p.kpis}</p>
               <div className="mt-4 flex items-center justify-between">
                 <span className="text-xs font-semibold text-white/60">{p.date}</span>
                 <a
