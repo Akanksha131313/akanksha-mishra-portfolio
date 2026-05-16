@@ -1,26 +1,498 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import heroPortrait from "@/assets/hero-portrait.png";
+import projectBank from "@/assets/project-bank.jpg";
+import projectRetail from "@/assets/project-retail.jpg";
+import projectMarketing from "@/assets/project-marketing.jpg";
+import {
+  Award, Download, Mail, Linkedin, Github, MapPin, Send,
+  Database, BarChart3, LineChart, Wrench,
+  Briefcase, GraduationCap, BadgeCheck, ExternalLink, Sparkles,
+} from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: PortfolioPage,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+const EMAIL = "akankshamishra1302003@gmail.com";
+const LINKEDIN = "https://linkedin.com/in/akankshamishra13";
+const GITHUB = "https://github.com/Akanksha131313";
+
+function Nav() {
+  const links = [
+    { href: "#home", label: "Home" },
+    { href: "#skills", label: "Skills" },
+    { href: "#experience", label: "Experience" },
+    { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+  ];
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <header className="sticky top-4 z-50 mx-auto w-[min(1200px,94%)]">
+      <nav className="flex items-center justify-between rounded-full bg-card/95 px-6 py-3 shadow-float backdrop-blur">
+        <a href="#home" className="text-xl font-extrabold text-navy">Akanksha<span className="text-primary">.</span></a>
+        <ul className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <li key={l.href}>
+              <a href={l.href} className="text-sm font-semibold text-navy/70 transition hover:text-navy">{l.label}</a>
+            </li>
+          ))}
+        </ul>
+        <a href="#contact" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-float transition hover:opacity-90">
+          Contact Me
+        </a>
+      </nav>
+    </header>
   );
 }
 
-function Index() {
-  return <PlaceholderIndex />;
+function Hero() {
+  return (
+    <section id="home" className="relative overflow-hidden pt-10">
+      <div className="mx-auto grid w-[min(1200px,94%)] grid-cols-1 items-center gap-10 rounded-[2.5rem] bg-gradient-hero px-6 py-12 md:grid-cols-2 md:px-12 md:py-16">
+        <div className="relative z-10">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-card/80 px-4 py-1.5 text-xs font-semibold text-navy shadow-float">
+            <MapPin className="h-3.5 w-3.5 text-primary" />
+            Open to Relocate – PAN India
+          </div>
+          <h1 className="text-5xl font-extrabold leading-[1.05] text-navy md:text-7xl">
+            Hi! I am<br />
+            <span className="bg-gradient-primary bg-clip-text text-transparent">Akanksha Mishra</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Data Analyst | SQL · Python · Power BI · Tableau · Advanced Excel · IIT Roorkee Certified.
+            Turning raw data into business decisions with KPI dashboards, ETL pipelines and clean reporting.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a href="#contact" className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-float transition hover:opacity-90">
+              Hire Me
+            </a>
+            <a
+              href="/Akanksha_Mishra_CV.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full border-2 border-navy/10 bg-card px-7 py-3.5 text-sm font-bold text-navy shadow-float transition hover:border-primary"
+            >
+              <Download className="h-4 w-4" /> Download CV
+            </a>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute right-10 top-6 h-3 w-3 rounded-full border-2 border-primary" />
+          <div className="absolute left-6 top-24 h-4 w-4 rounded-full border-2 border-navy" />
+          <div className="absolute bottom-8 left-2 text-primary"><Sparkles className="h-6 w-6" /></div>
+          <img
+            src={heroPortrait}
+            alt="Illustration of Akanksha Mishra, data analyst, surrounded by dashboards"
+            width={1024}
+            height={1024}
+            className="relative z-10 mx-auto w-full max-w-[480px]"
+          />
+          <div className="absolute -left-2 top-10 z-20 hidden items-center gap-3 rounded-2xl bg-card p-3 pr-5 shadow-float md:flex">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"><Database className="h-5 w-5" /></div>
+            <div>
+              <div className="text-sm font-bold text-navy">SQL Expert</div>
+              <div className="text-xs text-muted-foreground">CTEs · Window Fns</div>
+            </div>
+          </div>
+          <div className="absolute -right-2 bottom-16 z-20 hidden items-center gap-3 rounded-2xl bg-card p-3 pr-5 shadow-float md:flex">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-navy"><Award className="h-5 w-5" /></div>
+            <div>
+              <div className="text-sm font-bold text-navy">IIT Roorkee</div>
+              <div className="text-xs text-muted-foreground">Certified · 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Brand strip */}
+      <div className="mx-auto mt-10 w-[min(1200px,94%)]">
+        <p className="text-sm font-bold tracking-wide text-navy">Tools I Work With Every Day</p>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          {["SQL", "Python", "Power BI", "Tableau", "Excel", "PostgreSQL", "DAX", "Jupyter", "GitHub"].map((t) => (
+            <span key={t} className="rounded-full bg-card px-5 py-2 text-sm font-semibold text-navy shadow-float">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Summary() {
+  const stats = [
+    { value: "40K+", label: "Records Analyzed" },
+    { value: "20+", label: "Hours Saved / Week" },
+    { value: "300K+", label: "Impressions Tracked" },
+    { value: "3+", label: "End-to-End Projects" },
+  ];
+  return (
+    <section className="mx-auto mt-24 w-[min(1200px,94%)]">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div>
+          <span className="text-sm font-bold uppercase tracking-widest text-primary">About</span>
+          <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Professional<br /><span className="text-primary">Summary</span></h2>
+        </div>
+        <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+          Data Analyst with hands-on experience working on real-world datasets across finance, retail, and marketing
+          domains. Analyzed 40K+ records and built KPI-driven dashboards and ETL pipelines that reduced manual
+          reporting effort by 20+ hours. Skilled in SQL, Python, Power BI, and Tableau, with strong expertise in
+          data validation, MIS reporting, and translating business requirements into data-driven decisions.
+        </p>
+      </div>
+      <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="rounded-3xl bg-card p-6 shadow-card">
+            <div className="text-3xl font-extrabold text-primary md:text-4xl">{s.value}</div>
+            <div className="mt-1 text-sm font-medium text-muted-foreground">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  const groups = [
+    {
+      icon: Database, title: "Languages & Querying",
+      items: ["SQL — Joins", "CTEs", "Window Functions", "Python — Pandas", "NumPy"],
+    },
+    {
+      icon: BarChart3, title: "BI & Reporting",
+      items: ["Power BI", "DAX", "Data Modeling", "Tableau", "Advanced Excel", "MIS Reporting"],
+    },
+    {
+      icon: LineChart, title: "Data Analytics",
+      items: ["ETL Pipelines", "Data Cleaning", "Data Validation", "EDA", "KPI Development", "Data Reporting"],
+    },
+    {
+      icon: Wrench, title: "Tools",
+      items: ["Jupyter Notebook", "Google Colab", "Git", "GitHub"],
+    },
+  ];
+  return (
+    <section id="skills" className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="grid grid-cols-1 items-end gap-6 md:grid-cols-2">
+        <div>
+          <span className="text-sm font-bold uppercase tracking-widest text-primary">Toolkit</span>
+          <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">My<br /><span className="text-primary">Skills</span></h2>
+        </div>
+        <p className="text-muted-foreground">
+          A blend of querying, visualization and analytical thinking — the full stack a modern data analyst needs to ship insight.
+        </p>
+      </div>
+
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {groups.map((g) => (
+          <div key={g.title} className="group rounded-3xl bg-gradient-card p-[2px] shadow-card transition hover:-translate-y-1">
+            <div className="h-full rounded-[calc(theme(borderRadius.3xl)-2px)] bg-card p-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <g.icon className="h-7 w-7" />
+              </div>
+              <h3 className="mt-5 text-xl font-extrabold">{g.title}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {g.items.map((i) => (
+                  <li key={i} className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-navy/80">{i}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  const sims = [
+    {
+      org: "Deloitte (Forage)", role: "Data Analyst Simulation", date: "Mar 2026",
+      bullets: [
+        "Analyzed IoT telemetry datasets to identify downtime patterns and inefficiencies.",
+        "Performed data cleaning, validation and transformation for reporting accuracy.",
+        "Optimized reporting workflows, cutting manual dependency.",
+        "Applied ETL and statistical techniques for scalable analysis.",
+      ],
+    },
+    {
+      org: "Tata Group (Forage)", role: "Data Visualization Simulation", date: "Mar 2026",
+      bullets: [
+        "Built KPI dashboards in Power BI and Tableau to monitor business performance.",
+        "Produced 20+ insights enhancing visibility into revenue and customer trends.",
+        "Translated business requirements into clear visual analytics for stakeholders.",
+      ],
+    },
+  ];
+  return (
+    <section id="experience" className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="text-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">Virtual Experience</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Industry <span className="text-primary">Simulations</span></h2>
+      </div>
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {sims.map((s) => (
+          <div key={s.org} className="rounded-3xl bg-card p-8 shadow-card">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"><Briefcase className="h-6 w-6" /></div>
+                <div>
+                  <h3 className="text-lg font-extrabold leading-tight">{s.role}</h3>
+                  <p className="text-sm font-semibold text-primary">{s.org}</p>
+                </div>
+              </div>
+              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-navy">{s.date}</span>
+            </div>
+            <ul className="mt-5 space-y-2.5">
+              {s.bullets.map((b) => (
+                <li key={b} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  const projects = [
+    {
+      title: "Bank Loan Performance & Risk Analysis",
+      stack: ["SQL", "Python", "Power BI", "Tableau"],
+      date: "Nov 2024 – Mar 2025",
+      bg: projectBank,
+      kpis: "38,000+ loan records · Default rate · DTI · Portfolio quality",
+      desc: "Architected ETL workflows and interactive dashboards uncovering high-risk customer segments and enabling faster credit risk assessment.",
+    },
+    {
+      title: "Retail Customer Analytics & Purchase Trends",
+      stack: ["Python", "PostgreSQL", "Power BI"],
+      date: "Mar 2025 – May 2025",
+      bg: projectRetail,
+      kpis: "3,900+ transactions · CTEs · Window Functions",
+      desc: "Segmented customers and identified repeat-purchase patterns through EDA and feature engineering, surfaced in KPI dashboards.",
+    },
+    {
+      title: "Marketing Campaign Performance (Meta Ads)",
+      stack: ["Power BI", "DAX", "Data Modeling"],
+      date: "Jun 2025 – Jul 2025",
+      bg: projectMarketing,
+      kpis: "300K+ impressions · 40K+ clicks · Star schema",
+      desc: "Designed a star-schema model and assessed campaign effectiveness — refining budget allocation toward top-converting campaigns.",
+    },
+  ];
+  return (
+    <section id="projects" className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="text-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">Portfolio</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Recent <span className="text-primary">Projects</span></h2>
+      </div>
+      <div className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((p) => (
+          <article
+            key={p.title}
+            className="group relative h-[440px] overflow-hidden rounded-3xl shadow-card transition hover:-translate-y-1"
+          >
+            <img
+              src={p.bg}
+              alt=""
+              loading="lazy"
+              width={1280}
+              height={960}
+              className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/70 to-navy/10" />
+            <div className="relative flex h-full flex-col justify-end p-6">
+              <div className="mb-3 flex flex-wrap gap-2">
+                {p.stack.map((s) => (
+                  <span key={s} className="rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur">{s}</span>
+                ))}
+              </div>
+              <h3 className="text-xl font-extrabold text-white">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/80">{p.desc}</p>
+              <p className="mt-3 text-xs font-semibold text-primary-foreground/90 text-[oklch(0.85_0.15_45)]">{p.kpis}</p>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-xs font-semibold text-white/60">{p.date}</span>
+                <a
+                  href={GITHUB}
+                  target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
+                >
+                  View on GitHub <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  const edu = [
+    {
+      school: "IIT Roorkee",
+      degree: "Executive PG Certification in Data Science & AI",
+      date: "2024 – 2025",
+    },
+    {
+      school: "CCS University",
+      degree: "Bachelor of Business Administration (Finance)",
+      date: "2021 – 2024",
+    },
+  ];
+  return (
+    <section id="education" className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="text-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">Academics</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl"><span className="text-primary">Education</span></h2>
+      </div>
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {edu.map((e) => (
+          <div key={e.school} className="flex items-start gap-5 rounded-3xl bg-card p-6 shadow-card">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary text-white">
+              <GraduationCap className="h-7 w-7" />
+            </div>
+            <div>
+              <h3 className="text-lg font-extrabold">{e.school}</h3>
+              <p className="mt-1 text-sm font-semibold text-muted-foreground">{e.degree}</p>
+              <span className="mt-3 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-bold text-navy">{e.date}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Certifications() {
+  const certs = [
+    { name: "Data Analytics Job Simulation", org: "Deloitte (Forage)", date: "Mar 2026" },
+    { name: "Data Visualization", org: "Tata Group (Forage)", date: "Mar 2026" },
+    { name: "Executive PG in Data Science & AI", org: "IIT Roorkee", date: "2025" },
+    { name: "Microsoft SQL Certification", org: "Intellipaat", date: "2025" },
+  ];
+  return (
+    <section className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="text-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">Credentials</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl"><span className="text-primary">Certifications</span></h2>
+      </div>
+      <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
+        {certs.map((c) => (
+          <div key={c.name} className="rounded-3xl bg-card p-6 text-center shadow-card">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent text-primary">
+              <BadgeCheck className="h-7 w-7" />
+            </div>
+            <h3 className="mt-4 text-sm font-extrabold leading-tight">{c.name}</h3>
+            <p className="mt-1 text-xs text-muted-foreground">{c.org}</p>
+            <span className="mt-3 inline-block text-[11px] font-bold text-primary">{c.date}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  const [sent, setSent] = useState(false);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const subject = encodeURIComponent(`Portfolio enquiry from ${fd.get("name")}`);
+    const body = encodeURIComponent(`${fd.get("message")}\n\nFrom: ${fd.get("name")} <${fd.get("email")}>`);
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
+  return (
+    <section id="contact" className="mx-auto mt-28 mb-16 w-[min(1200px,94%)]">
+      <div className="overflow-hidden rounded-[2.5rem] bg-gradient-hero px-6 py-14 md:px-14">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div>
+            <span className="text-sm font-bold uppercase tracking-widest text-primary">Let's Talk</span>
+            <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Ready to turn data into<br /><span className="text-primary">decisions?</span></h2>
+            <p className="mt-5 max-w-md text-muted-foreground">
+              I'm open to Data Analyst, Business Analyst and BI roles across PAN India. Drop a message — I reply within a day.
+            </p>
+            <div className="mt-8 space-y-3">
+              <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-sm font-semibold text-navy hover:text-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-float"><Mail className="h-4 w-4 text-primary" /></span>
+                {EMAIL}
+              </a>
+              <a href={LINKEDIN} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm font-semibold text-navy hover:text-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-float"><Linkedin className="h-4 w-4 text-primary" /></span>
+                linkedin.com/in/akankshamishra13
+              </a>
+              <a href={GITHUB} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm font-semibold text-navy hover:text-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-float"><Github className="h-4 w-4 text-primary" /></span>
+                github.com/Akanksha131313
+              </a>
+              <div className="flex items-center gap-3 text-sm font-semibold text-navy">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-float"><MapPin className="h-4 w-4 text-primary" /></span>
+                Delhi, India · +91-7982840649
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="rounded-3xl bg-card p-7 shadow-card">
+            <h3 className="text-xl font-extrabold">Send a message</h3>
+            <div className="mt-5 space-y-4">
+              <div>
+                <label className="text-xs font-bold text-navy/70" htmlFor="name">Full Name</label>
+                <input id="name" name="name" required className="mt-1 w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label className="text-xs font-bold text-navy/70" htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" required className="mt-1 w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label className="text-xs font-bold text-navy/70" htmlFor="message">Message</label>
+                <textarea id="message" name="message" rows={4} required className="mt-1 w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
+              </div>
+              <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-float transition hover:opacity-90">
+                <Send className="h-4 w-4" /> {sent ? "Opening your mail app…" : "Let's Connect"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border/60 py-8">
+      <div className="mx-auto flex w-[min(1200px,94%)] flex-col items-center justify-between gap-3 text-sm text-muted-foreground md:flex-row">
+        <p>© {new Date().getFullYear()} Akanksha Mishra. Crafted with data & care.</p>
+        <div className="flex items-center gap-4">
+          <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary"><Linkedin className="h-4 w-4" /></a>
+          <a href={GITHUB} target="_blank" rel="noreferrer" className="hover:text-primary"><Github className="h-4 w-4" /></a>
+          <a href={`mailto:${EMAIL}`} className="hover:text-primary"><Mail className="h-4 w-4" /></a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function PortfolioPage() {
+  return (
+    <div className="min-h-screen">
+      <Nav />
+      <main>
+        <Hero />
+        <Summary />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Certifications />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
 }
