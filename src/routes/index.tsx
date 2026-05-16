@@ -54,13 +54,13 @@ function Hero() {
             <MapPin className="h-3.5 w-3.5 text-primary" />
             Open to Relocate – PAN India
           </div>
-          <h1 className="text-5xl font-extrabold leading-[1.05] text-white md:text-7xl">
+          <h1 className="text-5xl font-extrabold leading-[1.05] text-navy md:text-7xl">
             Hey! I am Akanksha Mishra
           </h1>
-          <h2 className="mt-4 text-xl font-bold text-white/95 md:text-2xl">
+          <h2 className="mt-4 text-xl font-bold text-navy md:text-2xl">
             Data Analyst | SQL · Python · Power BI · Tableau · Advanced Excel · IIT Roorkee Certified
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-navy/90 md:text-lg">
             Turning raw data into business decisions with KPI dashboards, ETL pipelines and clean reporting.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
