@@ -132,10 +132,7 @@ function Summary() {
           <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Professional<br /><span className="text-primary">Summary</span></h2>
         </div>
         <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-          Data Analyst with hands-on experience working on real-world datasets across finance, retail, and marketing
-          domains. Analyzed 40K+ records and built KPI-driven dashboards and ETL pipelines that reduced manual
-          reporting effort by 20+ hours. Skilled in SQL, Python, Power BI, and Tableau, with strong expertise in
-          data validation, MIS reporting, and translating business requirements into data-driven decisions.
+          Data Analyst with an Executive PG Certification in Data Science & Artificial Intelligence from IIT Roorkee and a BBA (Finance) background. Proficient in SQL, Python, Power BI, Tableau, PostgreSQL and Advanced Excel with hands-on experience analyzing datasets up to 300,000+ records across finance, telecom, retail and marketing domains. Skilled in ETL, data cleaning, exploratory data analysis (EDA), data modeling, KPI development, MIS reporting and business intelligence to deliver actionable insights that support data-driven decision-making.
         </p>
       </div>
       <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
