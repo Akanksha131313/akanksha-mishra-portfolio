@@ -61,11 +61,11 @@ function Hero() {
             Data Analyst | SQL · Python · Power BI · Tableau · Advanced Excel · IIT Roorkee Certified
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-navy/90 md:text-lg">
-            Turning raw data into business decisions with KPI dashboards, ETL pipelines and clean reporting.
+            Transforming raw data into actionable business insights using SQL, Python, Power BI and Tableau through ETL, KPI dashboards and advanced analytics.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-float transition hover:opacity-90">
-              Hire Me
+            <a href="#projects" className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-float transition hover:opacity-90">
+              View Projects
             </a>
             <a
               href="/Akanksha_Mishra_CV.pdf"
