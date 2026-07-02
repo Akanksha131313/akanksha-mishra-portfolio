@@ -90,7 +90,7 @@ function Hero() {
           <div className="absolute -left-2 top-10 z-20 hidden items-center gap-3 rounded-2xl bg-card p-3 pr-5 shadow-float md:flex">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"><Database className="h-5 w-5" /></div>
             <div>
-              <div className="text-sm font-bold text-navy">SQL Expert</div>
+              <div className="text-sm font-bold text-navy">Advanced SQL</div>
               <div className="text-xs text-muted-foreground">CTEs · Window Fns</div>
             </div>
           </div>
