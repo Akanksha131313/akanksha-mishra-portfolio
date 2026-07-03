@@ -150,20 +150,24 @@ function Summary() {
 function Skills() {
   const groups = [
     {
-      icon: Database, title: "Languages & Querying",
-      items: ["SQL — Joins", "CTEs", "Window Functions", "Python — Pandas", "NumPy"],
+      icon: Database, title: "Programming & Databases",
+      items: ["SQL", "PostgreSQL", "Python"],
     },
     {
-      icon: BarChart3, title: "BI & Reporting",
-      items: ["Power BI", "DAX", "Data Modeling", "Tableau", "Advanced Excel", "MIS Reporting"],
+      icon: BarChart3, title: "Business Intelligence",
+      items: ["Power BI", "Tableau", "Advanced Excel", "Power Query", "DAX"],
     },
     {
       icon: LineChart, title: "Data Analytics",
-      items: ["ETL Pipelines", "Data Cleaning", "Data Validation", "EDA", "KPI Development", "Data Reporting"],
+      items: ["ETL", "Data Cleaning", "Data Validation", "Exploratory Data Analysis (EDA)", "Data Modeling", "Feature Engineering", "KPI Development", "SQL Query Optimization", "Root Cause Analysis", "Financial Analytics", "Customer Analytics", "Business Intelligence"],
+    },
+    {
+      icon: Sparkles, title: "Machine Learning",
+      items: ["Classification", "Regression", "Model Evaluation"],
     },
     {
       icon: Wrench, title: "Tools",
-      items: ["Jupyter Notebook", "Google Colab", "Git", "GitHub"],
+      items: ["Git", "GitHub", "Jupyter Notebook", "Google Colab"],
     },
   ];
   return (
@@ -174,11 +178,11 @@ function Skills() {
           <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">My<br /><span className="text-primary">Skills</span></h2>
         </div>
         <p className="text-muted-foreground">
-          A blend of querying, visualization and analytical thinking — the full stack a modern data analyst needs to ship insight.
+          A blend of querying, visualization, machine learning and analytical thinking — the full stack a modern data analyst needs to ship insight.
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map((g) => (
           <div key={g.title} className="group rounded-3xl bg-gradient-card p-[2px] shadow-card transition hover:-translate-y-1">
             <div className="h-full rounded-[1.75rem] bg-card p-6">
