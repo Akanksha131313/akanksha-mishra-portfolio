@@ -261,27 +261,33 @@ function Projects() {
   const projects = [
     {
       title: "Bank Loan Performance & Risk Analysis",
-      stack: ["SQL", "Python", "Power BI", "Tableau"],
       date: "Nov 2024 – Mar 2025",
       bg: projectBank,
+      technologies: ["SQL", "Python", "Power BI", "Tableau"],
+      problem: "High default risk and unclear portfolio quality were delaying credit decisions.",
+      solution: "Built ETL pipelines, risk dashboards and customer segmentation models.",
       kpis: "38,000+ loan records · Default rate · DTI · Portfolio quality",
-      desc: "Architected ETL workflows and interactive dashboards uncovering high-risk customer segments and enabling faster credit risk assessment.",
+      impact: "Enabled faster risk assessment and identification of high-risk segments.",
     },
     {
       title: "Retail Customer Analytics & Purchase Trends",
-      stack: ["Python", "PostgreSQL", "Power BI"],
       date: "Mar 2025 – May 2025",
       bg: projectRetail,
-      kpis: "3,900+ transactions · CTEs · Window Functions",
-      desc: "Segmented customers and identified repeat-purchase patterns through EDA and feature engineering, surfaced in KPI dashboards.",
+      technologies: ["Python", "PostgreSQL", "Power BI"],
+      problem: "Low repeat-purchase visibility and poor customer segmentation were limiting growth.",
+      solution: "Segmented customers, analyzed purchase patterns and built KPI dashboards.",
+      kpis: "3,900+ transactions · CTEs · Window Functions · RFM segmentation",
+      impact: "Improved customer targeting and repeat-purchase strategy.",
     },
     {
       title: "Marketing Campaign Performance (Meta Ads)",
-      stack: ["Power BI", "DAX", "Data Modeling"],
       date: "Jun 2025 – Jul 2025",
       bg: projectMarketing,
-      kpis: "300K+ impressions · 40K+ clicks · Star schema",
-      desc: "Designed a star-schema model and assessed campaign effectiveness — refining budget allocation toward top-converting campaigns.",
+      technologies: ["Power BI", "DAX", "Data Modeling"],
+      problem: "Unclear ROI and budget allocation across Meta campaigns were hurting conversions.",
+      solution: "Designed a star-schema model and campaign performance dashboards.",
+      kpis: "300K+ impressions · 40K+ clicks · Star schema · Conversion rate",
+      impact: "Refined budget allocation toward top-converting campaigns.",
     },
   ];
   return (
@@ -294,7 +300,7 @@ function Projects() {
         {projects.map((p) => (
           <article
             key={p.title}
-            className="group relative h-[440px] overflow-hidden rounded-3xl shadow-card transition hover:-translate-y-1"
+            className="group relative h-[480px] overflow-hidden rounded-3xl shadow-card transition hover:-translate-y-1"
           >
             <img
               src={p.bg}
@@ -304,16 +310,26 @@ function Projects() {
               height={960}
               className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/70 to-navy/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/80 to-navy/30" />
             <div className="relative flex h-full flex-col justify-end p-6">
-              <div className="mb-3 flex flex-wrap gap-2">
-                {p.stack.map((s) => (
-                  <span key={s} className="rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur">{s}</span>
-                ))}
+              <h3 className="text-lg font-extrabold text-white md:text-xl">{p.title}</h3>
+
+              <div className="mt-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-white/60">Key Technologies</span>
+                <div className="mt-1 flex flex-wrap gap-1.5">
+                  {p.technologies.map((s) => (
+                    <span key={s} className="rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur">{s}</span>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-xl font-extrabold text-white">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/80">{p.desc}</p>
-              <p className="mt-3 text-xs font-semibold" style={{ color: "oklch(0.82 0.16 50)" }}>{p.kpis}</p>
+
+              <div className="mt-3 space-y-1.5 text-xs leading-snug text-white/85">
+                <p><span className="font-bold text-white">Business Problem:</span> {p.problem}</p>
+                <p><span className="font-bold text-white">Solution:</span> {p.solution}</p>
+                <p><span className="font-bold text-white">Key KPIs:</span> {p.kpis}</p>
+                <p><span className="font-bold text-white">Business Impact:</span> {p.impact}</p>
+              </div>
+
               <div className="mt-4 flex items-center justify-between">
                 <span className="text-xs font-semibold text-white/60">{p.date}</span>
                 <a
