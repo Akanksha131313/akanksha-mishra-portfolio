@@ -119,10 +119,10 @@ function Hero() {
 
 function Summary() {
   const stats = [
-    { value: "40K+", label: "Records Analyzed" },
-    { value: "20+", label: "Hours Saved / Week" },
-    { value: "300K+", label: "Impressions Tracked" },
-    { value: "3+", label: "End-to-End Projects" },
+    { value: "300K+", label: "Records Analyzed" },
+    { value: "4", label: "End-to-End Analytics Projects" },
+    { value: "4", label: "Professional Certifications" },
+    { value: "Open to Relocate", label: "PAN India" },
   ];
   return (
     <section className="mx-auto mt-24 w-[min(1200px,94%)]">
