@@ -8,6 +8,7 @@ import {
   Award, Download, Mail, Linkedin, Github, MapPin, Send,
   Database, BarChart3, LineChart, Wrench,
   Briefcase, GraduationCap, BadgeCheck, ExternalLink, Sparkles,
+  TrendingUp, PieChart, Target, Layers, Filter, Search, FileBarChart, GitBranch,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -21,6 +22,7 @@ const GITHUB = "https://github.com/Akanksha131313";
 function Nav() {
   const links = [
     { href: "#home", label: "Home" },
+    { href: "#expertise", label: "Expertise" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
@@ -55,13 +57,13 @@ function Hero() {
             Open to Relocate – PAN India
           </div>
           <h1 className="text-5xl font-extrabold leading-[1.05] text-navy md:text-7xl">
-            Hey! I am Akanksha Mishra
+            AKANKSHA MISHRA
           </h1>
-          <h2 className="mt-4 text-xl font-bold text-navy md:text-2xl">
-            Data Analyst | SQL | Python | Power BI | Tableau | Advanced Excel | Data Science (IIT Roorkee)
+          <h2 className="mt-4 text-lg font-bold text-navy md:text-xl">
+            Data Analyst | Business Intelligence | SQL | Python | Power BI | Tableau | Advanced Excel | IIT Roorkee Certified
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-navy/90 md:text-lg">
-            Data Analyst with an Executive PG Certification in Data Science & Artificial Intelligence from IIT Roorkee, skilled in SQL, Python, Power BI, Tableau, PostgreSQL and Advanced Excel. Passionate about transforming raw data into actionable business insights through ETL, KPI dashboards, business intelligence and analytics.
+            Data Analyst with an Executive PG Certification in Data Science & Artificial Intelligence from IIT Roorkee and a BBA (Finance) background. Skilled in SQL, Python, PostgreSQL, Power BI, Tableau and Advanced Excel, transforming complex datasets into actionable business insights through ETL, KPI dashboards, business intelligence and analytics.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#projects" className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-primary-foreground shadow-float transition hover:opacity-90">
@@ -91,7 +93,7 @@ function Hero() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"><Database className="h-5 w-5" /></div>
             <div>
               <div className="text-sm font-bold text-navy">Advanced SQL</div>
-              <div className="text-xs text-muted-foreground">CTEs · Window Fns</div>
+              <div className="text-xs text-muted-foreground">CTEs · Window Functions · Query Optimization</div>
             </div>
           </div>
           <div className="absolute -right-2 bottom-16 z-20 hidden items-center gap-3 rounded-2xl bg-card p-3 pr-5 shadow-float md:flex">
