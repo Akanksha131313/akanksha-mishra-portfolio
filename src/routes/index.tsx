@@ -119,29 +119,69 @@ function Hero() {
   );
 }
 
-function Summary() {
+function Highlights() {
   const stats = [
     { value: "300K+", label: "Records Analyzed" },
     { value: "4", label: "End-to-End Analytics Projects" },
     { value: "4", label: "Professional Certifications" },
-    { value: "Open to Relocate", label: "PAN India" },
+    { value: "PAN India", label: "Open to Relocate" },
   ];
   return (
-    <section className="mx-auto mt-24 w-[min(1200px,94%)]">
+    <section className="mx-auto mt-16 w-[min(1200px,94%)]">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="rounded-3xl bg-card p-6 shadow-card">
+            <div className="text-3xl font-extrabold text-primary md:text-4xl">{s.value}</div>
+            <div className="mt-1 text-sm font-medium text-muted-foreground">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="mx-auto mt-24 w-[min(1200px,94%)]">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div>
           <span className="text-sm font-bold uppercase tracking-widest text-primary">About</span>
           <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Professional<br /><span className="text-primary">Summary</span></h2>
         </div>
         <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-          Data Analyst with an Executive PG Certification in Data Science & Artificial Intelligence from IIT Roorkee and a BBA (Finance) background. Proficient in SQL, Python, Power BI, Tableau, PostgreSQL and Advanced Excel with hands-on experience analyzing datasets up to 300,000+ records across finance, telecom, retail and marketing domains. Skilled in ETL, data cleaning, exploratory data analysis (EDA), data modeling, KPI development, MIS reporting and business intelligence to deliver actionable insights that support data-driven decision-making.
+          Data Analyst with an Executive PG Certification in Data Science & Artificial Intelligence from IIT Roorkee and a BBA (Finance) background. Skilled in transforming complex datasets into actionable business insights using SQL, Python, Power BI, Tableau, PostgreSQL and Advanced Excel. Experienced in ETL, Data Cleaning, Exploratory Data Analysis (EDA), Data Modeling, KPI Development, Dashboard Reporting, MIS Reporting and Business Intelligence across finance, telecom, retail and marketing domains.
         </p>
       </div>
-      <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
-        {stats.map((s) => (
-          <div key={s.label} className="rounded-3xl bg-card p-6 shadow-card">
-            <div className="text-3xl font-extrabold text-primary md:text-4xl">{s.value}</div>
-            <div className="mt-1 text-sm font-medium text-muted-foreground">{s.label}</div>
+    </section>
+  );
+}
+
+function CoreExpertise() {
+  const items = [
+    { icon: BarChart3, label: "Business Intelligence" },
+    { icon: LineChart, label: "Dashboard Development" },
+    { icon: TrendingUp, label: "Financial Analytics" },
+    { icon: Target, label: "Customer Analytics" },
+    { icon: PieChart, label: "Marketing Analytics" },
+    { icon: Sparkles, label: "Data Storytelling" },
+    { icon: FileBarChart, label: "KPI Reporting" },
+    { icon: Layers, label: "ETL Pipelines" },
+    { icon: Database, label: "SQL Analytics" },
+    { icon: Search, label: "Exploratory Data Analysis" },
+  ];
+  return (
+    <section id="expertise" className="mx-auto mt-28 w-[min(1200px,94%)]">
+      <div className="text-center">
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">What I Do</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Core <span className="text-primary">Expertise</span></h2>
+      </div>
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        {items.map((i) => (
+          <div key={i.label} className="group flex flex-col items-center gap-3 rounded-2xl bg-card p-5 text-center shadow-card transition hover:-translate-y-1">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <i.icon className="h-6 w-6" />
+            </div>
+            <h3 className="text-sm font-extrabold leading-tight text-navy">{i.label}</h3>
           </div>
         ))}
       </div>
@@ -157,11 +197,11 @@ function Skills() {
     },
     {
       icon: BarChart3, title: "Business Intelligence",
-      items: ["Power BI", "Tableau", "Advanced Excel", "Power Query", "DAX"],
+      items: ["Power BI", "Tableau", "Advanced Excel", "Power Query", "DAX", "Dashboard Development", "Data Visualization", "MIS Reporting"],
     },
     {
       icon: LineChart, title: "Data Analytics",
-      items: ["ETL", "Data Cleaning", "Data Validation", "Exploratory Data Analysis (EDA)", "Data Modeling", "Feature Engineering", "KPI Development", "SQL Query Optimization", "Root Cause Analysis", "Financial Analytics", "Customer Analytics", "Business Intelligence"],
+      items: ["ETL", "Data Cleaning", "Data Validation", "Exploratory Data Analysis", "Data Modeling", "Feature Engineering", "KPI Development", "SQL Query Optimization", "Predictive Analytics", "Root Cause Analysis", "Financial Analytics", "Customer Analytics", "Business Intelligence"],
     },
     {
       icon: Sparkles, title: "Machine Learning",
@@ -208,28 +248,32 @@ function Skills() {
 function Experience() {
   const sims = [
     {
-      org: "Deloitte (Forage)", role: "Data Analyst Simulation", date: "Mar 2026",
+      org: "Deloitte – Data Analytics Job Simulation (Virtual Experience – Forage)",
+      role: "Data Analyst",
+      date: "Mar 2026",
       bullets: [
-        "Analyzed IoT telemetry datasets to identify downtime patterns and inefficiencies.",
-        "Performed data cleaning, validation and transformation for reporting accuracy.",
-        "Optimized reporting workflows, cutting manual dependency.",
-        "Applied ETL and statistical techniques for scalable analysis.",
+        "Analyzed IoT telemetry datasets to identify downtime patterns, inefficiencies and process improvement opportunities.",
+        "Performed end-to-end data cleaning, validation and transformation to ensure reporting accuracy and consistency.",
+        "Optimized reporting workflows and automated recurring analysis, reducing manual dependency.",
+        "Applied ETL techniques and statistical analysis to deliver scalable, business-ready insights.",
       ],
     },
     {
-      org: "Tata Group (Forage)", role: "Data Visualization Simulation", date: "Mar 2026",
+      org: "Tata Group – Data Visualization Job Simulation (Virtual Experience – Forage)",
+      role: "Data Visualization Analyst",
+      date: "Mar 2026",
       bullets: [
-        "Built KPI dashboards in Power BI and Tableau to monitor business performance.",
-        "Produced 20+ insights enhancing visibility into revenue and customer trends.",
-        "Translated business requirements into clear visual analytics for stakeholders.",
+        "Built KPI dashboards in Power BI and Tableau to monitor revenue, customer and operational performance.",
+        "Delivered 20+ actionable insights enhancing visibility into customer behaviour and business trends.",
+        "Translated business requirements into clear visual analytics for executive stakeholders.",
       ],
     },
   ];
   return (
     <section id="experience" className="mx-auto mt-28 w-[min(1200px,94%)]">
       <div className="text-center">
-        <span className="text-sm font-bold uppercase tracking-widest text-primary">Virtual Experience</span>
-        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Industry <span className="text-primary">Simulations</span></h2>
+        <span className="text-sm font-bold uppercase tracking-widest text-primary">Experience</span>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Professional <span className="text-primary">Experience</span></h2>
       </div>
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
         {sims.map((s) => (
@@ -239,7 +283,7 @@ function Experience() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"><Briefcase className="h-6 w-6" /></div>
                 <div>
                   <h3 className="text-lg font-extrabold leading-tight">{s.role}</h3>
-                  <p className="text-sm font-semibold text-primary">{s.org}</p>
+                  <p className="text-sm font-semibold text-primary leading-snug">{s.org}</p>
                 </div>
               </div>
               <span className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-navy">{s.date}</span>
