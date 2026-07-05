@@ -548,7 +548,9 @@ function PortfolioPage() {
       <Nav />
       <main>
         <Hero />
-        <Summary />
+        <Highlights />
+        <About />
+        <CoreExpertise />
         <Skills />
         <Experience />
         <Projects />
