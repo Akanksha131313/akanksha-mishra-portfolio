@@ -309,44 +309,62 @@ function Projects() {
       title: "Bank Loan Performance & Risk Analysis",
       date: "Nov 2024 – Mar 2025",
       bg: projectBank,
+      overview: "End-to-end loan portfolio analytics on 38,000+ loan records.",
       technologies: ["SQL", "Python", "Power BI", "Tableau"],
-      problem: "High default risk and unclear portfolio quality were delaying credit decisions.",
-      solution: "Built ETL pipelines, risk dashboards and customer segmentation models.",
-      kpis: "38,000+ loan records · Default rate · DTI · Portfolio quality",
-      impact: "Enabled faster risk assessment and identification of high-risk segments.",
+      problem: "Rising default risk and unclear portfolio quality were delaying credit decisions.",
+      solution: "Built ETL pipelines, risk dashboards and borrower segmentation across the loan book.",
+      tools: "SQL · Python · Power BI · Tableau",
+      kpis: "Default Rate · Recovery Rate · DTI Ratio · Loan Status · Portfolio Quality",
+      impact: "Enabled KPI-driven loan portfolio monitoring and borrower risk analysis supporting better credit decisions.",
+    },
+    {
+      title: "Telecom Churn Prediction & Customer Retention Analysis",
+      date: "May 2025 – Jun 2025",
+      bg: projectRetail,
+      overview: "Predictive analytics on telecom customer data to identify churn drivers.",
+      technologies: ["Python", "Machine Learning", "EDA", "Feature Engineering"],
+      problem: "High churn was eroding recurring revenue with no visibility into at-risk customers.",
+      solution: "Performed EDA, feature engineering and built classification models with customer segmentation.",
+      tools: "Python · Scikit-learn · Jupyter",
+      kpis: "Churn Rate · Retention · Customer Segments · Model Accuracy",
+      impact: "Identified high-risk customers and supported retention strategies through predictive analytics.",
+    },
+    {
+      title: "Marketing Campaign Performance Dashboard",
+      date: "Jun 2025 – Jul 2025",
+      bg: projectMarketing,
+      overview: "Meta Ads performance analytics tracking 300K+ impressions and 40K+ clicks.",
+      technologies: ["Power BI", "DAX", "Data Modeling"],
+      problem: "Unclear ROI and budget allocation across Meta campaigns were hurting conversions.",
+      solution: "Designed a star-schema data model and interactive campaign performance dashboards.",
+      tools: "Power BI · DAX · Power Query",
+      kpis: "300K+ Impressions · 40K+ Clicks · CTR · CPC · ROAS · Conversion Rate",
+      impact: "Improved campaign performance analysis and marketing budget optimization.",
     },
     {
       title: "Retail Customer Analytics & Purchase Trends",
       date: "Mar 2025 – May 2025",
       bg: projectRetail,
+      overview: "Customer analytics on 3,900+ retail transactions to decode buying behaviour.",
       technologies: ["Python", "PostgreSQL", "Power BI"],
-      problem: "Low repeat-purchase visibility and poor customer segmentation were limiting growth.",
-      solution: "Segmented customers, analyzed purchase patterns and built KPI dashboards.",
-      kpis: "3,900+ transactions · CTEs · Window Functions · RFM segmentation",
-      impact: "Improved customer targeting and repeat-purchase strategy.",
-    },
-    {
-      title: "Marketing Campaign Performance (Meta Ads)",
-      date: "Jun 2025 – Jul 2025",
-      bg: projectMarketing,
-      technologies: ["Power BI", "DAX", "Data Modeling"],
-      problem: "Unclear ROI and budget allocation across Meta campaigns were hurting conversions.",
-      solution: "Designed a star-schema model and campaign performance dashboards.",
-      kpis: "300K+ impressions · 40K+ clicks · Star schema · Conversion rate",
-      impact: "Refined budget allocation toward top-converting campaigns.",
+      problem: "Low repeat-purchase visibility and weak customer segmentation were limiting growth.",
+      solution: "Segmented customers, analyzed purchase patterns and built KPI dashboards for retail leadership.",
+      tools: "Python · PostgreSQL · Power BI",
+      kpis: "3,900+ Transactions · Customer Segmentation · Buying Behaviour · Customer Lifetime Indicators",
+      impact: "Generated insights into customer purchasing behaviour supporting business growth.",
     },
   ];
   return (
     <section id="projects" className="mx-auto mt-28 w-[min(1200px,94%)]">
       <div className="text-center">
         <span className="text-sm font-bold uppercase tracking-widest text-primary">Portfolio</span>
-        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Recent <span className="text-primary">Projects</span></h2>
+        <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Featured <span className="text-primary">Projects</span></h2>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-7 md:grid-cols-2">
         {projects.map((p) => (
           <article
             key={p.title}
-            className="group relative h-[480px] overflow-hidden rounded-3xl shadow-card transition hover:-translate-y-1"
+            className="group relative h-[560px] overflow-hidden rounded-3xl shadow-card transition hover:-translate-y-1"
           >
             <img
               src={p.bg}
@@ -359,31 +377,39 @@ function Projects() {
             <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/80 to-navy/30" />
             <div className="relative flex h-full flex-col justify-end p-6">
               <h3 className="text-lg font-extrabold text-white md:text-xl">{p.title}</h3>
+              <p className="mt-1 text-xs font-semibold text-white/70">{p.date}</p>
 
-              <div className="mt-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white/60">Key Technologies</span>
-                <div className="mt-1 flex flex-wrap gap-1.5">
+              <div className="mt-3 space-y-1.5 text-xs leading-snug text-white/85">
+                <p><span className="font-bold text-white">Project Overview:</span> {p.overview}</p>
+                <p><span className="font-bold text-white">Business Problem:</span> {p.problem}</p>
+                <p><span className="font-bold text-white">Solution:</span> {p.solution}</p>
+                <p><span className="font-bold text-white">Tools Used:</span> {p.tools}</p>
+                <p><span className="font-bold text-white">Key KPIs:</span> {p.kpis}</p>
+                <p><span className="font-bold text-white">Business Impact:</span> {p.impact}</p>
+              </div>
+
+              <div className="mt-3">
+                <div className="flex flex-wrap gap-1.5">
                   {p.technologies.map((s) => (
                     <span key={s} className="rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur">{s}</span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-3 space-y-1.5 text-xs leading-snug text-white/85">
-                <p><span className="font-bold text-white">Business Problem:</span> {p.problem}</p>
-                <p><span className="font-bold text-white">Solution:</span> {p.solution}</p>
-                <p><span className="font-bold text-white">Key KPIs:</span> {p.kpis}</p>
-                <p><span className="font-bold text-white">Business Impact:</span> {p.impact}</p>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs font-semibold text-white/60">{p.date}</span>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
                 <a
                   href={GITHUB}
                   target="_blank" rel="noreferrer"
                   className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
                 >
-                  View on GitHub <ExternalLink className="h-3 w-3" />
+                  <Github className="h-3 w-3" /> GitHub
+                </a>
+                <a
+                  href={GITHUB}
+                  target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold text-white backdrop-blur"
+                >
+                  <BarChart3 className="h-3 w-3" /> Dashboard
                 </a>
               </div>
             </div>
@@ -433,10 +459,10 @@ function Education() {
 
 function Certifications() {
   const certs = [
-    { name: "Data Analytics Job Simulation", org: "Deloitte (Forage)", date: "Mar 2026" },
-    { name: "Data Visualization", org: "Tata Group (Forage)", date: "Mar 2026" },
-    { name: "Executive PG in Data Science & AI", org: "IIT Roorkee", date: "2025" },
+    { name: "Executive PG Certification in Data Science & Artificial Intelligence", org: "IIT Roorkee", date: "2025", featured: true },
     { name: "Microsoft SQL Certification", org: "Intellipaat", date: "2025" },
+    { name: "Deloitte Data Analytics Job Simulation", org: "Forage", date: "Mar 2026" },
+    { name: "Tata Data Visualization Job Simulation", org: "Forage", date: "Mar 2026" },
   ];
   return (
     <section className="mx-auto mt-28 w-[min(1200px,94%)]">
@@ -446,13 +472,36 @@ function Certifications() {
       </div>
       <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
         {certs.map((c) => (
-          <div key={c.name} className="rounded-3xl bg-card p-6 text-center shadow-card">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent text-primary">
-              <BadgeCheck className="h-7 w-7" />
-            </div>
-            <h3 className="mt-4 text-sm font-extrabold leading-tight">{c.name}</h3>
-            <p className="mt-1 text-xs text-muted-foreground">{c.org}</p>
-            <span className="mt-3 inline-block text-[11px] font-bold text-primary">{c.date}</span>
+          <div
+            key={c.name}
+            className={
+              c.featured
+                ? "relative rounded-3xl bg-gradient-primary p-[2px] shadow-card"
+                : "rounded-3xl bg-card p-6 text-center shadow-card"
+            }
+          >
+            {c.featured ? (
+              <div className="relative h-full rounded-[1.4rem] bg-card p-6 text-center">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-primary-foreground shadow-float">
+                  Flagship
+                </span>
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-white">
+                  <Award className="h-7 w-7" />
+                </div>
+                <h3 className="mt-4 text-sm font-extrabold leading-tight">{c.name}</h3>
+                <p className="mt-1 text-xs font-semibold text-primary">{c.org}</p>
+                <span className="mt-3 inline-block text-[11px] font-bold text-primary">{c.date}</span>
+              </div>
+            ) : (
+              <>
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent text-primary">
+                  <BadgeCheck className="h-7 w-7" />
+                </div>
+                <h3 className="mt-4 text-sm font-extrabold leading-tight">{c.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{c.org}</p>
+                <span className="mt-3 inline-block text-[11px] font-bold text-primary">{c.date}</span>
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -479,7 +528,7 @@ function Contact() {
             <span className="text-sm font-bold uppercase tracking-widest text-primary">Let's Talk</span>
             <h2 className="mt-2 text-4xl font-extrabold md:text-5xl">Ready to turn data into<br /><span className="text-primary">decisions?</span></h2>
             <p className="mt-5 max-w-md text-muted-foreground">
-              I'm open to Data Analyst, Business Analyst and BI roles across PAN India. Drop a message — I reply within a day.
+              Available for Full-Time Data Analyst, Business Analyst and Business Intelligence roles across India. Usually respond within 24 hours.
             </p>
             <div className="mt-8 space-y-3">
               <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-sm font-semibold text-navy hover:text-primary">
@@ -531,7 +580,7 @@ function Footer() {
   return (
     <footer className="border-t border-border/60 py-8">
       <div className="mx-auto flex w-[min(1200px,94%)] flex-col items-center justify-between gap-3 text-sm text-muted-foreground md:flex-row">
-        <p>© {new Date().getFullYear()} Akanksha Mishra. Crafted with data & care.</p>
+        <p>© {new Date().getFullYear()} Akanksha Mishra. Building scalable data-driven solutions using SQL, Python, Power BI and Tableau.</p>
         <div className="flex items-center gap-4">
           <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary"><Linkedin className="h-4 w-4" /></a>
           <a href={GITHUB} target="_blank" rel="noreferrer" className="hover:text-primary"><Github className="h-4 w-4" /></a>
